@@ -1,0 +1,48 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
+
+<!-- Register GSAP -->
+<script>
+gsap.registerPlugin(ScrollTrigger, Flip);
+</script>
+
+<!-- Video Testimonials -->
+<script>
+$(".video-testimonials_item").each(function () {
+    let testimonial = $(this);
+    let button = testimonial.find(".button-round");
+    let cornerWrapper = testimonial.find(".video-testimonials-item_corner-button-wrapper");
+    let centerWrapper = testimonial.find(".video-testimonials-item_center-button-wrapper");
+    let buttonState;
+
+    testimonial.on("mouseenter", function () {
+        buttonState = Flip.getState(button);
+        button.appendTo(centerWrapper);
+        Flip.from(buttonState, {duration: 0.5, ease: "power3.out"});
+    });
+
+    testimonial.on("mouseleave", function () {
+        buttonState = Flip.getState(button);
+        button.appendTo(cornerWrapper);
+        Flip.from(buttonState, {duration: 0.5, ease: "power3.out"});
+    });
+});
+</script>
+
+<!-- Code Snippets -->
+<script>
+    // Footer Copyright
+    $('[copyright-year]').text(new Date().getFullYear());
+
+    // Hide section if collection is empty
+    $('.w-dyn-empty').parents('[hide-if-empty]').each(function () { $(this).hide() });
+
+    // Keep form height on success
+    $(window).bind("load resize submit", function (e) {
+        $('form').each(function () {
+            var formHeight = $(this).height();
+            $(this).siblings('.w-form-done').css({ 'min-height': formHeight });
+        });
+    });
+</script>
