@@ -1,7 +1,7 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
 
 <!-- Register GSAP -->
 <script>
@@ -30,20 +30,20 @@
 <script>
     $(".video-testimonials_item").each(function () {
         let testimonial = $(this);
-        let button = testimonial.find(".button-round");
+        /* We are using a wrapper because the button element has some css transitions that breaks the flip */
+        let buttonWrapper = testimonial.find(".video-testimonials-item_button-wrapper");
         let cornerWrapper = testimonial.find(".video-testimonials-item_corner-button-wrapper");
         let centerWrapper = testimonial.find(".video-testimonials-item_center-button-wrapper");
-        let buttonState;
 
         testimonial.on("mouseenter", function () {
-            buttonState = Flip.getState(button);
-            button.appendTo(centerWrapper);
+            const buttonState = Flip.getState(buttonWrapper);
+            buttonWrapper.appendTo(centerWrapper);
             Flip.from(buttonState, { duration: 0.5, ease: "power3.out" });
         });
 
         testimonial.on("mouseleave", function () {
-            buttonState = Flip.getState(button);
-            button.appendTo(cornerWrapper);
+            const buttonState = Flip.getState(buttonWrapper);
+            buttonWrapper.appendTo(cornerWrapper);
             Flip.from(buttonState, { duration: 0.5, ease: "power3.out" });
         });
     });
