@@ -1,33 +1,52 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.4/Flip.min.js"></script>
 
 <!-- Register GSAP -->
 <script>
-gsap.registerPlugin(ScrollTrigger, Flip);
+    gsap.registerPlugin(ScrollTrigger, Observer, Flip);
+</script>
+
+<!-- Navbar -->
+<script>
+    const showAnim = gsap.to('.navbar_component', {
+        yPercent: -100,
+        paused: true,
+        duration: 0.2
+    });
+
+    Observer.create({
+        type: "wheel,touch",
+        wheelSpeed: -1,
+        onDown: () => showAnim.reverse(),
+        onUp: () => showAnim.play(),
+        tolerance: 50,
+        // preventDefault: true
+    });
 </script>
 
 <!-- Video Testimonials -->
 <script>
-$(".video-testimonials_item").each(function () {
-    let testimonial = $(this);
-    let button = testimonial.find(".button-round");
-    let cornerWrapper = testimonial.find(".video-testimonials-item_corner-button-wrapper");
-    let centerWrapper = testimonial.find(".video-testimonials-item_center-button-wrapper");
-    let buttonState;
+    $(".video-testimonials_item").each(function () {
+        let testimonial = $(this);
+        let button = testimonial.find(".button-round");
+        let cornerWrapper = testimonial.find(".video-testimonials-item_corner-button-wrapper");
+        let centerWrapper = testimonial.find(".video-testimonials-item_center-button-wrapper");
+        let buttonState;
 
-    testimonial.on("mouseenter", function () {
-        buttonState = Flip.getState(button);
-        button.appendTo(centerWrapper);
-        Flip.from(buttonState, {duration: 0.5, ease: "power3.out"});
-    });
+        testimonial.on("mouseenter", function () {
+            buttonState = Flip.getState(button);
+            button.appendTo(centerWrapper);
+            Flip.from(buttonState, { duration: 0.5, ease: "power3.out" });
+        });
 
-    testimonial.on("mouseleave", function () {
-        buttonState = Flip.getState(button);
-        button.appendTo(cornerWrapper);
-        Flip.from(buttonState, {duration: 0.5, ease: "power3.out"});
+        testimonial.on("mouseleave", function () {
+            buttonState = Flip.getState(button);
+            button.appendTo(cornerWrapper);
+            Flip.from(buttonState, { duration: 0.5, ease: "power3.out" });
+        });
     });
-});
 </script>
 
 <!-- Code Snippets -->
