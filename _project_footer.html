@@ -48,6 +48,23 @@
     });
 </script>
 
+<!-- Agency Numbers -->
+<script>
+    $(".agengy-numbers_coponent").each(function () {
+        let trigger = $(this);
+        let agencyNumbersTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: trigger,
+                start: "top center",
+                end: "bottom center",
+                scrub: 1
+            }
+        });
+
+        agencyNumbersTimeline.from(trigger.find(".big-number-card_component.is-move-down"), { y: "0%"});
+    });
+</script>
+
 <!-- Code Snippets -->
 <script>
     // Footer Copyright
