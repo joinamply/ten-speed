@@ -17,12 +17,19 @@
     });
 
     Observer.create({
-        type: "wheel,touch",
+        type: "wheel, touch",
         wheelSpeed: -1,
-        onDown: () => showAnim.reverse(),
-        onUp: () => showAnim.play(),
+        onDown: () => toggleNavbarDisplay(false),
+        onUp: () => toggleNavbarDisplay(true),
         tolerance: 50
     });
+
+    function toggleNavbarDisplay(hide) {
+        if($(".navbar_menu-button").hasClass("w--open")) {
+            return;
+        }
+        hide ? showAnim.play() : showAnim.reverse();
+    }
 </script>
 
 <!-- Video Testimonials -->
