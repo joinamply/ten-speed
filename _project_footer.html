@@ -2,6 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
 <!-- Register GSAP -->
 <script>
@@ -69,6 +70,34 @@
         });
 
         agencyNumbersTimeline.from(trigger.find(".big-number-card_component.is-move-down"), { y: "0%"});
+    });
+</script>
+
+<!-- Basic Swiper Slider -->
+<script>
+    $(".swiper_component").each(function () {
+        let slidesPerView = "auto";
+        let followFinger = $(this).attr("followFinger");
+        let speed = parseInt($(this).attr("speed"));
+        let autoHeight = $(this).attr("autoHeight");
+        const swiper = new Swiper($(this).find(".swiper")[0], {
+            slidesPerView: slidesPerView,
+            followFinger: followFinger,
+            speed: speed,
+            autoHeight: autoHeight,
+            pagination: {
+                el: $(this).find(".swiper_bullets-wrapper")[0],
+                bulletActiveClass: "is-active",
+                bulletClass: "swiper_bullet",
+                bulletElement: "button",
+                clickable: true
+            },
+            navigation: {
+                nextEl: $(this).find("[swiper-next]")[0],
+                prevEl: $(this).find("[swiper-prev]")[0],
+                disabledClass: "is-disabled"
+            }
+        });
     });
 </script>
 
