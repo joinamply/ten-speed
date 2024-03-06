@@ -1,5 +1,5 @@
-<!-- Navbar -->
 <style>
+    /* ==================== Navbar ==================== */
     .navbar_dropdown-link .icon-embed-xxsmall {
         opacity: 0;
         margin-left: -1rem;
@@ -19,5 +19,33 @@
         .navbar_menu-layout {
             grid-column-gap: 0.875rem;
         }
+    }
+
+    /* ==================== Header ==================== */
+    .header_component[background-color="turquoise"] {
+        background-color: var(--colors-brand--turquoise);
+        color: var(--colors-neutrals--n0);
+    }
+
+    .header_component[background-color="turquoise"] h1 {
+        color: var(--colors-neutrals--n0);
+    }
+
+    .header_component[background-color="turquoise"] .header_content-background {
+        background-image: radial-gradient((circle closest-side at 50% 50%, var(--colors-brand--turquoise), transparent));
+    }
+
+    /* ==================== CTA ==================== */
+    .cta_component[background-color="blue"] {
+        background-color: var(--colors-brand--blue);
+        color: var(--colors-neutrals--n0);
+    }
+
+    .cta_component[background-color="blue"] h1 {
+        color: var(--colors-neutrals--n3);
+    }
+
+    .cta_component[background-color="blue"] .cta_content-background {
+        background-image: radial-gradient((circle closest-side at 50% 50%, var(--colors-brand--blue), transparent));
     }
 </style>

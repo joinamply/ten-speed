@@ -4,13 +4,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Observer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-<!-- Register GSAP -->
 <script>
+    /* ==================== 
+    Register GSAP plugins 
+    ==================== */
     gsap.registerPlugin(ScrollTrigger, Observer, Flip);
-</script>
 
-<!-- Navbar -->
-<script>
+    /* ==================== 
+    Navbar 
+    ==================== */
     const showAnim = gsap.to('.navbar_component', {
         yPercent: -100,
         paused: true,
@@ -26,15 +28,15 @@
     });
 
     function toggleNavbarDisplay(hide) {
-        if($(".navbar_menu-button").hasClass("w--open")) {
+        if ($(".navbar_menu-button").hasClass("w--open")) {
             return;
         }
         hide ? showAnim.play() : showAnim.reverse();
     }
-</script>
 
-<!-- Video Testimonials -->
-<script>
+    /* ==================== 
+    Video Testimonials 
+    ==================== */
     $(".video-testimonials_item").each(function () {
         let testimonial = $(this);
         /* We are using a wrapper because the button element has some css transitions that breaks the flip */
@@ -54,10 +56,10 @@
             Flip.from(buttonState, { duration: 0.5, ease: "power3.out" });
         });
     });
-</script>
 
-<!-- Agency Numbers -->
-<script>
+    /* ==================== 
+    Agency Numbers
+    ==================== */
     $(".agengy-numbers_coponent").each(function () {
         let trigger = $(this);
         let agencyNumbersTimeline = gsap.timeline({
@@ -69,12 +71,12 @@
             }
         });
 
-        agencyNumbersTimeline.from(trigger.find(".big-number-card_component.is-move-down"), { y: "0%"});
+        agencyNumbersTimeline.from(trigger.find(".big-number-card_component.is-move-down"), { y: "0%" });
     });
-</script>
 
-<!-- Basic Swiper Slider -->
-<script>
+    /* ==================== 
+    Basic Swiper Slider
+    ==================== */
     $(".swiper_component").each(function () {
         let slidesPerView = "auto";
         let followFinger = $(this).attr("followFinger");
@@ -99,16 +101,14 @@
             }
         });
     });
-</script>
 
-<!-- Code Snippets -->
-<script>
+    /* ==================== 
+    Code Snippets
+    ==================== */
     // Footer Copyright
     $('[copyright-year]').text(new Date().getFullYear());
-
     // Hide section if collection is empty
     $('.w-dyn-empty').parents('[hide-if-empty]').each(function () { $(this).hide() });
-
     // Keep form height on success
     $(window).bind("load resize submit", function (e) {
         $('form').each(function () {
