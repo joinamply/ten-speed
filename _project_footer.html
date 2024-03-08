@@ -103,6 +103,52 @@
     });
 
     /* ==================== 
+    Hubspot API
+    ==================== */
+    let hubspotEndPoint = "https://api.hsforms.com/submissions/v3/integration/submit/8888351/";
+    let formData;
+
+    $("[form-hubspot-api]").on("submit", function (event) {
+        let formType = $(this).attr("form-hubspot-api");
+        hubspotEndPoint = hubspotEndPoint + $(this).attr("form-hubspot-id");
+
+        switch (formType) {
+            case "audits":
+                formData = {
+                    email: $(this).find("[api-email]").val()
+                };
+                break;
+            case "contact":
+                formData = {
+                    firstName: $(this).find("[api-first-name]").val(),
+                    lastName: $(this).find("[api-last-name]").val(),
+                    company: $(this).find("[api-company-name]").val(),
+                    email: $(this).find("[api-email]").val(),
+                    message: $(this).find("[api-message]").val()
+                };
+                break;
+        }
+
+        // Make a POST request to HubSpot
+        fetch(hubspotEndPoint, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: new URLSearchParams(formData),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('HubSpot Form Submission Successful:', data);
+                // Handle success, e.g., show a success message to the user
+            })
+            .catch(error => {
+                console.error('HubSpot Form Submission Error:', error);
+                // Handle error, e.g., show an error message to the user
+            });
+    });
+
+    /* ==================== 
     Code Snippets
     ==================== */
     // Footer Copyright
