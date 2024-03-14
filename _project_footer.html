@@ -108,27 +108,13 @@
     let hubspotEndPoint = "https://api.hsforms.com/submissions/v3/integration/submit/8888351/";
     let formData;
 
-    $("[form-hubspot-api]").on("submit", function (event) {
-        let formType = $(this).attr("form-hubspot-api");
-        hubspotEndPoint = hubspotEndPoint + $(this).attr("form-hubspot-id");
-
-        switch (formType) {
-            case "audits":
-                formData = {
-                    email: $(this).find("[api-email]").val()
-                };
-                break;
-            case "contact":
-                formData = {
-                    firstName: $(this).find("[api-first-name]").val(),
-                    lastName: $(this).find("[api-last-name]").val(),
-                    company: $(this).find("[api-company-name]").val(),
-                    email: $(this).find("[api-email]").val(),
-                    message: $(this).find("[api-message]").val()
-                };
-                break;
-        }
-
+    $("[hs-form]").on("submit", function (event) {
+        let hsID = $(this).attr("hs-form");
+        let hsEndPoint = hubspotEndPoint + hsID;
+        // Add the form data to the formData object
+        $(this).find("[hs-form-field]").each(function () {
+            formData[$(this).attr("hs-form-field")] = $(this).val();
+        });
         // Make a POST request to HubSpot
         fetch(hubspotEndPoint, {
             method: 'POST',
