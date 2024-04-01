@@ -11,6 +11,11 @@
         margin-left: 0rem;
     }
 
+    .navbar_menu::-webkit-scrollbar {
+        height: 0;
+        width: 0;
+    }
+
     @media screen and (min-width: 992px) and (max-width: 1070px) {
         .navbar_logo {
             height: 1.25rem;
@@ -47,5 +52,208 @@
 
     .cta_component[background-color="blue"] .cta_content-background {
         background-image: radial-gradient((circle closest-side at 50% 50%, var(--colors-brand--blue), transparent));
+    }
+
+    .basic-header_component[background-color="light-blue"] {
+        background-color: var(--colors-brand--turquoise);
+        color: var(--colors-neutrals--n10);
+    }
+
+    .basic-header_component[background-color="light-blue"] h1 {
+        color: var(--colors-neutrals--n10);
+    }
+
+    .button.is--icon[background-color="none"] {
+        background-color: transparent;
+        color: var(--colors-brand--blue);
+        padding: 0;
+        font-weight: medium;
+    }
+
+    .basic-header_component[background-color="cyan"] {
+        background-color: var(--colors-brand--turquoise);
+        color: var(--colors-neutrals--n10);
+    }
+
+    [background-color="coral"] {
+        background-color: var(--colors-brand--coral-bg);
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="coral"] h1,
+    [background-color="coral"] h2,
+    [background-color="coral"] h3,
+    [background-color="coral"] h4,
+    [background-color="coral"] h5,
+    [background-color="coral"] h6 {
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="turquoise"] {
+        background-color: var(--colors-brand--turquoise-bg);
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="turquoise"] h1,
+    [background-color="turquoise"] h2,
+    [background-color="turquoise"] h3,
+    [background-color="turquoise"] h4,
+    [background-color="turquoise"] h5,
+    [background-color="turquoise"] h6 {
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="blue"] {
+        background-color: var(--colors-brand--blue);
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="blue"] h1,
+    [background-color="blue"] h2,
+    [background-color="blue"] h3,
+    [background-color="blue"] h4,
+    [background-color="blue"] h5,
+    [background-color="blue"] h6 {
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="dark-blue"] {
+        background-color: var(--colors-brand--blue-dark);
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="dark-blue"] h1,
+    [background-color="dark-blue"] h2,
+    [background-color="dark-blue"] h3,
+    [background-color="dark-blue"] h4,
+    [background-color="dark-blue"] h5,
+    [background-color="dark-blue"] h6 {
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="cyan"] {
+        background-color: var(--colors-brand--cyan-bg);
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="cyan"] h1,
+    [background-color="cyan"] h2,
+    [background-color="cyan"] h3,
+    [background-color="cyan"] h4,
+    [background-color="cyan"] h5,
+    [background-color="cyan"] h6 {
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="dark-cyan"] {
+        background-color: var(--colors-brand--cyan-dark);
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="dark-cyan"] h1,
+    [background-color="dark-cyan"] h2,
+    [background-color="dark-cyan"] h3,
+    [background-color="dark-cyan"] h4,
+    [background-color="dark-cyan"] h5,
+    [background-color="dark-cyan"] h6 {
+        color: var(--colors-neutrals--n0);
+    }
+
+
+    [background-color="coral"] {
+        background-color: var(--colors-brand--coral-bg);
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="coral"] h1,
+    [background-color="coral"] h2,
+    [background-color="coral"] h3,
+    [background-color="coral"] h4,
+    [background-color="coral"] h5,
+    [background-color="coral"] h6 {
+        color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="white"] {
+        color: var(--colors-neutrals--n10);
+        background-color: var(--colors-neutrals--n0);
+    }
+
+    [background-color="white"] h1,
+    [background-color="white"] h2,
+    [background-color="white"] h3,
+    [background-color="white"] h4,
+    [background-color="white"] h5,
+    [background-color="white"] h6 {
+        color: var(--colors-neutrals--n10);
+    }
+
+
+    /* ==================== BUTTON ==================== */
+    .button.is--icon[button-type="secondary"] {
+        border: 1px solid var(--colors-brand--button);
+        background-color: transparent;
+        color: var(--colors-brand--button);
+    }
+
+    .button.is--icon[button-type="secondary"]:hover {
+        border: none;
+        background-color: var(--colors-brand--button-medium);
+        color: var(--colors-neutrals--n0);
+    }
+
+    .button.is--icon[button-type="circle"] {
+        height: 2.5rem;
+        width: 2.5rem;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .button.is--icon[button-type="circle-large"] {
+        height: 4rem;
+        width: 4rem;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .button.is--icon[button-type="tertiary"] {
+        padding: 0;
+        background-color: transparent;
+        color: var(--colors-brand--button);
+    }
+
+    .button.is--icon[button-type="tertiary"]:hover {
+        background-color: transparent;
+        color: var(--colors-brand--button-medium);
+    }
+
+    .button.is--icon[button-bg="green"] {
+        background-color: var(--colors-brand--turquoise-dark);
+    }
+
+    .button.is--icon[button-bg="green"]:hover {
+        background-color: var(--colors-brand--turquoise);
+    }
+
+    .button.is--icon[button-bg="coral"] {
+        background-color: var(--colors-brand--coral-dark);
+    }
+
+    .button.is--icon[button-bg="coral"]:hover {
+        background-color: var(--colors-brand--coral)
+    }
+
+    .button.is--icon[button-bg="white"] {
+        background-color: var(--colors-neutrals--n0);
+        color: var(--color-brand--button);
+    }
+
+    .button.is--icon[button-bg="white"]:hover {
+        background-color: var(--colors-brand--button-medium);
+        color: var(--colors-neutrals--n0);
     }
 </style>
