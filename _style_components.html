@@ -16,28 +16,18 @@
         width: 0;
     }
 
-    @media screen and (min-width: 992px) and (max-width: 1070px) {
+    @media screen and (min-width: 992px) and (max-width: 1171px) {
         .navbar_logo {
             height: 1.25rem;
         }
 
         .navbar_menu-layout {
-            grid-column-gap: 0.875rem;
+            grid-column-gap: 0.625rem;
         }
-    }
 
-    /* ==================== Header ==================== */
-    .header_component[background-color="turquoise"] {
-        background-color: var(--colors-brand--turquoise);
-        color: var(--colors-neutrals--n0);
-    }
-
-    .header_component[background-color="turquoise"] h1 {
-        color: var(--colors-neutrals--n0);
-    }
-
-    .header_component[background-color="turquoise"] .header_content-background {
-        background-image: radial-gradient((circle closest-side at 50% 50%, var(--colors-brand--turquoise), transparent));
+        .navbar_dropdwn-toggle, .navbar_link {
+            font-size: 0.875rem;
+        }
     }
 
     /* ==================== CTA ==================== */

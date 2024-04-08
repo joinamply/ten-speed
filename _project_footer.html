@@ -14,10 +14,9 @@
     });
 
     Observer.create({
-        type: "wheel, touch",
-        wheelSpeed: -1,
-        onDown: () => toggleNavbarDisplay(false),
-        onUp: () => toggleNavbarDisplay(true),
+        type: "scroll",
+        onDown: () => toggleNavbarDisplay(true),
+        onUp: () => toggleNavbarDisplay(false),
         tolerance: 50
     });
 
