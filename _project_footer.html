@@ -29,7 +29,7 @@
         $("[sticky-adjust]").each(function () {
             if (hide) {
                 $(this).css("top", "1rem");
-            } 
+            }
             else {
                 $(this).css("top", "6rem");
             }
@@ -108,19 +108,31 @@
     Hubspot API
     ==================== */
     let hubspotEndPoint = "https://api.hsforms.com/submissions/v3/integration/submit/8105752/";
-    let formData = {};
+    let formData = {
+        "fields": [
+            {
+                "name": "",
+                "value": ""
+            }
+        ]
+    };
 
     $("[hs-form]").on("submit", function (event) {
         let hsForm = $(this);
         let hsFormID = $(this).attr("hs-form");
-        let hsEndPoint = hubspotEndPoint + hsFormID;
+        hubspotEndPoint = hubspotEndPoint + hsFormID;
         let redirectURL = $(this).attr("redirect-url");
         // Add the form data to the formData object
         hsForm.find("[hs-form-field]").each(function () {
-            formData[$(this).attr("hs-form-field")] = $(this).val();
+            let field = {
+                name: $(this).attr("hs-form-field"),
+                value: $(this).val()
+            };
+            formData.fields.push(field);
         });
+        console.log("HubSpot Form Data:", formData);
         // Make a POST request to HubSpot
-        fetch(hsEndPoint, {
+        fetch(hubspotEndPoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
