@@ -25,6 +25,15 @@
             return;
         }
         hide ? showAnim.play() : showAnim.reverse();
+
+        $("[sticky-adjust]").each(function () {
+            if (hide) {
+                $(this).css("top", "1rem");
+            } 
+            else {
+                $(this).css("top", "6rem");
+            }
+        });
     }
 
     /* ==================== 
