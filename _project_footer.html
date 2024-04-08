@@ -107,7 +107,7 @@
     /* ==================== 
     Hubspot API
     ==================== */
-    let hubspotEndPoint = "https://api.hsforms.com/submissions/v3/integration/submit/8105752/";
+    let hsApiUrl = "https://api.hsforms.com/submissions/v3/integration/submit/8105752/";
     let formData = {
         "fields": [
             {
@@ -120,7 +120,7 @@
     $("[hs-form]").on("submit", function (event) {
         let hsForm = $(this);
         let hsFormID = $(this).attr("hs-form");
-        hubspotEndPoint = hubspotEndPoint + hsFormID;
+        let hsEndPoint = hsApiUrl + hsFormID;
         let redirectURL = $(this).attr("redirect-url");
         // Add the form data to the formData object
         hsForm.find("[hs-form-field]").each(function () {
@@ -132,7 +132,7 @@
         });
         console.log("HubSpot Form Data:", formData);
         // Make a POST request to HubSpot
-        fetch(hubspotEndPoint, {
+        fetch(hsEndPoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

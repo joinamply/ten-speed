@@ -1,0 +1,39 @@
+<script>
+    $(".contact-process-item_component").each(function() {
+        if($(this).attr("start-open") === undefined) {
+            gsap.set($(this).find(".contact-process-item_right"), {
+                height: 0
+            });
+            gsap.set($(this).find(".contact-process-item_arrow-icon"), {
+                rotateZ: 0
+            });
+        }
+    });
+    $(".contact-process-item_component").on("click", function() {
+        if($(this).css("height") == "auto") {
+            return;
+        }
+        // Close all
+        gsap.to(".contact-process-item_right", {
+            duration: 0.3,
+            height: 0,
+            ease: "power2.inOut"
+        });
+        gsap.to(".contact-process-item_arrow-icon", {
+            duration: 0.3,
+            rotateZ: 0,
+            ease: "power2.inOut"
+        });
+        // Open Clicked
+        gsap.to($(this).find(".contact-process-item_right"), {
+            duration: 0.3,
+            height: "auto",
+            ease: "power2.inOut"
+        });
+        gsap.to($(this).find(".contact-process-item_arrow-icon"), {
+            duration: 0.3,
+            rotateZ: 180,
+            ease: "power2.inOut"
+        });
+    });
+</script>
