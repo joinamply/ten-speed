@@ -1,5 +1,7 @@
 <style>
-    /* ==================== Navbar ==================== */
+    /* ==================== 
+    Navbar 
+    ==================== */
     .navbar_dropdown-link .icon-embed-xxsmall {
         opacity: 0;
         margin-left: -1rem;
@@ -25,13 +27,38 @@
         }
     }
 
-    /* ==================== CTA ==================== */
+    /* ==================== 
+    CTA 
+    ==================== */
+    .cta_component h2 {
+        font-size: inherit;
+        line-height: inherit;
+        letter-spacing: inherit;
+    }
+
+    .cta_component h2 em {
+        font-family: "Sourceserif 4", sans-serif;
+        font-weight: 400 !important;
+        font-style: italic !important;
+        font-size: 6.5rem !important;
+        line-height: 0.88 !important;
+        letter-spacing: -0.26rem !important;
+    }
+
+    @media screen and (max-width: 767px) {
+        .cta_component h2 em {
+            font-size: 3.3125rem !important;
+            line-height: 0.98 !important;
+            letter-spacing: -0.1325rem !important;
+        }
+    }
+
     .cta_component[background-color="blue"] {
         background-color: var(--colors-brand--blue);
         color: var(--colors-neutrals--n0);
     }
 
-    .cta_component[background-color="blue"] h1 {
+    .cta_component[background-color="blue"] h2 {
         color: var(--colors-neutrals--n3);
     }
 
@@ -39,6 +66,9 @@
         background-image: radial-gradient((circle closest-side at 50% 50%, var(--colors-brand--blue), transparent));
     }
 
+    /* ==================== 
+    Header 
+    ==================== */
     .basic-header_component[background-color="light-blue"] {
         background-color: var(--colors-brand--turquoise);
         color: var(--colors-neutrals--n10);
@@ -60,6 +90,9 @@
         color: var(--colors-neutrals--n10);
     }
 
+    /* ==================== 
+    Background 
+    ==================== */
     [background-color="coral"] {
         background-color: var(--colors-brand--coral-bg);
         color: var(--colors-neutrals--n0);
@@ -174,7 +207,9 @@
     }
 
 
-    /* ==================== BUTTON ==================== */
+    /* ==================== 
+    BUTTON 
+    ==================== */
     .button.is--icon[button-type="secondary"] {
         border: 1px solid var(--colors-brand--button);
         background-color: transparent;
