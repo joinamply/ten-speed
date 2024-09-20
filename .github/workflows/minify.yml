@@ -19,13 +19,11 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
-        working-directory: ./frontend  # Adjust to the folder containing package.json
         run: |
           npm install
           npm install uglify-js -g
 
       - name: Minify JavaScript
-        working-directory: ./frontend  # Adjust if your source files are in a subfolder
         run: |
           mkdir -p dist
           for file in src/*.js; do
