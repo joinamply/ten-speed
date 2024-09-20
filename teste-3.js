@@ -18,5 +18,3 @@
     });
 
     $('[moments-delete]').remove();
-
-    console.log('teste-3.js');
