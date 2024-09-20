@@ -1,44 +1,37 @@
 name: Auto Minify Code
 
-# Trigger the workflow on every push to the main branch
 on:
   push:
     branches:
-      - main  # Change this to your target branch if needed
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+      - main
 
 jobs:
   minify:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js (assuming you are using a JavaScript minifier)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'  # Adjust as needed
+          node-version: '16'
 
-      # Step 3: Install dependencies (including a minification tool like UglifyJS)
       - name: Install dependencies
+        working-directory: ./frontend  # Adjust to the folder containing package.json
         run: |
           npm install
-          npm install uglify-js -g  # You can choose a different tool if needed
+          npm install uglify-js -g
 
-      # Step 4: Minify the JavaScript files (adjust the path to your source files)
       - name: Minify JavaScript
+        working-directory: ./frontend  # Adjust if your source files are in a subfolder
         run: |
           mkdir -p dist
           for file in src/*.js; do
             uglifyjs "$file" --compress --mangle --output "dist/$(basename $file)"
           done
 
-      # Step 5: Commit and push the minified files (optional)
       - name: Commit minified files
         run: |
           git config --global user.name "github-actions[bot]"
