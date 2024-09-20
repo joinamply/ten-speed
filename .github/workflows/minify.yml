@@ -10,23 +10,16 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  minify:
     runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository
-      - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.ref }}
+      - name: check out the repository
+        uses: actions/checkout@v4
 
-      # Job for Minify-JS
-      - name: Minify-JS Action
-        uses: jossydevers/minify-js@v1.0.0
+      - name: auto minify the files
+        uses: nizarmah/auto-minify@v3
+
+      - name: auto commit the minified files
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          directory: 'src/component.js' # (OPTIONAL)
-          output: 'minify/src/' # (OPTIONAL)
-          
-      # Auto-commit to repository
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: 'Minify-JS : Commit Pipeline'
-          branch: ${{ github.ref }}
+          commit_message: "bot: Add auto minified files"
